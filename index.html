@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Site de Dicas de Senhas Seguras</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* Cor de fundo personalizada */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center; /* Título centralizado */
+        }
+        ul {
+            list-style-type: disc;
+            color: #333; /* Cor da lista */
+            font-size: 20px; /* Tamanho da lista */
+            padding-left: 40px;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input[type="password"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #aviso {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dicas para Criar Senhas Seguras</h1>
+        <ul>
+            <li>Use pelo menos 8 caracteres.</li>
+            <li>Inclua números e letras maiúsculas.</li>
+            <li>Evite palavras comuns ou informações pessoais.</li>
+        </ul>
+
+        <button onclick="mostrarMensagem()">Clique aqui para uma mensagem de boas-vindas</button>
+        <div id="aviso"></div>
+
+        <h2>Verificador de Senha</h2>
+        <input type="password" id="senha" placeholder="Digite sua senha" />
+        <button onclick="verificarSenha()">Verificar Senha</button>
+        <div id="resultado"></div>
+    </div>
+
+    <footer>
+        Seu Nome
+    </footer>
+
+    <script>
+        function mostrarMensagem() {
+            alert("bem vindo(a) ao meu site seguro!");
+        }
+
+        function verificarSenha() {
+            const senha = document.getElementById('senha').value;
+            const resultado = document.getElementById('resultado');
+
+            const tem8Letras = senha.length >= 8;
+            const temNumero = /\d/.test(senha);
+            const temMaiuscula = /[A-Z]/.test(senha);
+
+            if (tem8Letras && temNumero && temMaiuscula) {
+                resultado.textContent = "Senha forte!";
+            } else {
+                resultado.textContent = "Senha fraca! tente outra.";
+            }
+        }
+    </script>
+</body>
+</html>
